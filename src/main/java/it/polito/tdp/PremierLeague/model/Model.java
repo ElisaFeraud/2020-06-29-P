@@ -73,8 +73,7 @@ public class Model {
 		 return result;
 	 }
 	  public List<Match> camminoPesoMax(Match match1, Match match2){
-	    	best= new LinkedList<Match>();
-	    	List<Match> parziale = new LinkedList<Match>();
+	     	List<Match> parziale = new LinkedList<Match>();
 	    	parziale.add(match1);
 	    	doCammino(parziale,match1,match2);
 	    	//best.add(match2);
@@ -87,11 +86,10 @@ public class Model {
 				best= new LinkedList<>(parziale);
 			Match ultimo = parziale.get(parziale.size()-1);
 			List<Match> adiacenti = Graphs.neighborListOf(this.grafo, ultimo);
-			
 			for(Match m : adiacenti) {
-				if(!m.getTeamHomeID().equals(ultimo.getTeamHomeID()) && !m.getTeamAwayID().equals(ultimo.getTeamAwayID())) {
+				//if(!m.getTeamHomeID().equals(ultimo.getTeamHomeID()) && !m.getTeamAwayID().equals(ultimo.getTeamAwayID())) {
 					parziale.add(m);
-					doCammino(parziale,match1,match2);}
+					doCammino(parziale,match1,match2);//}
 			}
 		}
 	  private double calcolaPeso(List<Match> parziale) {
